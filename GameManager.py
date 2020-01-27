@@ -59,6 +59,7 @@ class GameManager(object):
         client_connection.send_packed(["User not found"])
 
     def give_client_world(self, client, command_info_list):
+        #test
         requested_world_id = int(command_info_list[1])
         for session in self.sessions:
             if session.world.world_id == requested_world_id:
