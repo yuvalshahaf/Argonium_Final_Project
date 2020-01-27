@@ -30,7 +30,6 @@ class Game(object):
 
         self.movement_state = {
             "UP": False,
-            asdasd
             "DOWN": False,
             "RIGHT": False,
             "LEFT": False

@@ -65,8 +65,7 @@ class GameManager(object):
             if session.world.world_id == requested_world_id:
                 session.connect_client(client)
                 client.joined_game = True
-                returnasdasd
-
+                return
         for world in self.example_database.WORLDS:
             if world.world_id == requested_world_id:
                 new_session = Session(world)
