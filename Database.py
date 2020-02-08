@@ -1,7 +1,7 @@
 from World import World
 from PlayerCharacter import PlayerCharacter
 
-
+# TODO: create an actual database
 class Database(object):
     def __init__(self):
         self.USERS = [

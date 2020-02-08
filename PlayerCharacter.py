@@ -1,5 +1,5 @@
 import pygame
-from ImageSetup import FighterImages
+from Images import Images
 from GameActions import GameActions
 
 
@@ -83,9 +83,9 @@ class FighterClass(PlayerCharacter):
 
     def __init__(self, user_id):
         super().__init__(user_id)
-        self.move_up_images = FighterImages.UP  # 4 images
-        self.move_down_images = FighterImages.DOWN  # 4 images
-        self.move_right_images = FighterImages.RIGHT  # 4 images
-        self.move_left_images = FighterImages.LEFT  # 4 images
+        self.move_up_images = Images.FIGHTER_MOVE_UP_IMAGES  # 4 images
+        self.move_down_images = Images.FIGHTER_MOVE_DOWN_IMAGES  # 4 images
+        self.move_right_images = Images.FIGHTER_MOVE_RIGHT_IMAGES  # 4 images
+        self.move_left_images = Images.FIGHTER_MOVE_LEFT_IMAGES  # 4 images
         self.image = self.move_up_images[self.image_index]
 

@@ -4,7 +4,7 @@ from Commands import Commands
 import time
 from Connection import Connection
 import threading
-import ImageSetup
+from Images import Images
 from GameActions import GameActions
 from queue import Queue
 from World import World
@@ -13,8 +13,7 @@ from Map import Map
 
 class Game(object):
     def __init__(self):
-        ImageSetup.FighterImages()
-        ImageSetup.MapImages()
+        Images.load_images()
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect(('127.0.0.1', 1729))
@@ -64,9 +63,11 @@ class Game(object):
         self.world = self.connection.receive_object()
 
     def set_up_game(self):
+        print(len(self.world.maps))
         for single_map in self.world.maps:
             single_map.initiate_map()
         # TODO: Load all images as pygame images
+        self.current_map = self.world.maps[0]
 
     def run_game(self):
         pygame.init()
@@ -117,7 +118,6 @@ class Game(object):
             elif self.movement_state["LEFT"]:
                 self.connection.send_byte(GameActions.MOVE_LEFT)
 
-
             self.display.blit(self.current_map.tiled_map.make_map(), (0, 0))
             for game_object in self.current_map.game_objects:
                 self.display.blit(pygame.image.load(game_object.image), [game_object.x, game_object.y]) # TODO: have the image loaded already
@@ -133,9 +133,3 @@ class Game(object):
                 for game_object in single_map.game_objects:
                     if object_id == game_object.id:
                         game_object.update(game_action)
-
-
-game = Game()
-game.play_game()
-
-

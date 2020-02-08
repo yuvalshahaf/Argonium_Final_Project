@@ -7,6 +7,7 @@ from Database import Database
 import hashlib
 from Connection import Connection
 from Client import Client
+from Images import Images
 
 # command_info_list = [commands, info1, info2...]
 
@@ -78,6 +79,7 @@ class GameManager(object):
 
 
 def main():
+    Images.load_images()
     game_manager = GameManager()
     t = threading.Thread(target=game_manager.connect_clients)
     t.start()

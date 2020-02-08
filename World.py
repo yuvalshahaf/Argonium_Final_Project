@@ -1,6 +1,6 @@
 from Map import Map
-from ImageSetup import MapImages
 from GameActions import GameActions
+from Images import Images
 WORLD_ID = 1
 
 
@@ -10,7 +10,7 @@ class World:
         self.world_id = WORLD_ID
         WORLD_ID += 1
 
-        self.maps = [Map(MapImages.FIRST_MAP)]
+        self.maps = [Map(Images.MAP_TOWN)]
         self.player_characters = []
 
     def add_new_character(self, player_character):

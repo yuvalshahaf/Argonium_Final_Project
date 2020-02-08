@@ -4,17 +4,8 @@ import pytmx
 
 
 class TiledMap:
-    def __init__(self, paths):
-        self.path = ""
-        for path in paths:
-            try:
-                pytmx.load_pygame(path, pixelalpha=True)
-            except:
-                pass
-            else:
-                self.path = path
-                break
-        self.tm = pytmx.load_pygame("Pictures/maps/map.tmx", pixelalpha=True)
+    def __init__(self, path):
+        self.tm = pytmx.load_pygame(path, pixelalpha=True)
         self.width = self.tm.width * self.tm.tilewidth
         self.height = self.tm.height * self.tm.tileheight
 
@@ -35,13 +26,12 @@ class TiledMap:
 
 
 class Map(object):
-    def __init__(self, paths):
-        self.paths = paths
-        self.map_location = [0, 0]
+    def __init__(self, path):
+        self.path = path
         self.tiled_map = None
         self.image = None
         self.game_objects = [PlayerCharacter.FighterClass(1)]
 
     def initiate_map(self):
-        self.tiled_map = TiledMap(self.paths)
+        self.tiled_map = TiledMap(self.path)
         self.image = self.tiled_map.make_map()
