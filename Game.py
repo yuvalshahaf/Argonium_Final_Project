@@ -133,3 +133,12 @@ class Game(object):
                 for game_object in single_map.game_objects:
                     if object_id == game_object.id:
                         game_object.update(game_action)
+
+
+def main():
+    game = Game()
+    game.play_game()
+
+
+if __name__ == '__main__':
+    main()

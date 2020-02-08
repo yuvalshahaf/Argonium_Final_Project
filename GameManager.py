@@ -80,6 +80,7 @@ class GameManager(object):
 
 def main():
     Images.load_images()
+    print(Images.PATH)
     game_manager = GameManager()
     t = threading.Thread(target=game_manager.connect_clients)
     t.start()
