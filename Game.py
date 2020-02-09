@@ -37,7 +37,6 @@ class Game(object):
     def play_game(self):
         self.login()
         self.choose_game()
-        self.set_up_game()
         self.run_game()
 
     def login(self):
@@ -73,6 +72,8 @@ class Game(object):
         pygame.init()
         self.display = pygame.display.set_mode((800, 800))
         pygame.display.set_caption('Argonium')
+
+        self.set_up_game()
 
         t2 = threading.Thread(target=self.receive_updates)
         t2.start()

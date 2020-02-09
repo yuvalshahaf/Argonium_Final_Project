@@ -50,6 +50,7 @@ class GameManager(object):
         for user_info in self.example_database.USERS:
             if user_info[0] == user_name:
                 if user_info[1] == hashed_password:
+                    client.user_id = user_info[3]
                     client_connection.send_byte(Commands.LOGIN_SUCCEEDED)
                     client_connection.send_object(user_info[2])
                 else:
@@ -64,6 +65,9 @@ class GameManager(object):
         requested_world_id = int(command_info_list[1])
         for session in self.sessions:
             if session.world.world_id == requested_world_id:
+                for pc in session.world.player_characters:
+                    if pc.user_id == client.user_id:
+                        client.current_character_id = pc.pc_id
                 session.connect_client(client)
                 client.joined_game = True
                 return
@@ -81,6 +85,7 @@ class GameManager(object):
 def main():
     Images.load_images()
     print(Images.PATH)
+    print("sdfsdf")
     game_manager = GameManager()
     t = threading.Thread(target=game_manager.connect_clients)
     t.start()

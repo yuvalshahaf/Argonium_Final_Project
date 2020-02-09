@@ -25,7 +25,7 @@ class Session(object):
         while True:
             action = client.connection.receive_byte()
             for pc in self.players_characters:
-                if pc.id == client.current_PC_id:
+                if pc.pc_id == client.current_character_id:
                     self.received_actions_queue.put((action, pc))
 
     def calculate_actions(self):

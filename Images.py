@@ -15,7 +15,7 @@ class Images:
 
     @staticmethod
     def load_images():
-        game_folder = "Argonuim_Final_Project"
+        game_folder = "Argonium_Final_Project"
         for path, directories, files in os.walk('C:\\'):
             if game_folder in directories:
                 Images.PATH = os.path.join(path, game_folder) + "\\Pictures\\"

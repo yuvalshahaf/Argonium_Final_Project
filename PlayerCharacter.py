@@ -4,9 +4,13 @@ from GameActions import GameActions
 
 
 class PlayerCharacter(pygame.sprite.Sprite):
+    ID = 0
+
     def __init__(self, user_id):
         super().__init__()
         self.user_id = user_id
+        self.pc_id = PlayerCharacter.ID
+        PlayerCharacter.ID += 1
 
         self.world_id = 0
         self.current_map = 0
