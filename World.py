@@ -15,3 +15,13 @@ class World:
 
     def add_new_character(self, player_character):
         self.player_characters.append(player_character)
+
+
+class WorldInfo:
+    WORLD_ID = 0
+
+    def __init__(self):
+        self.world_id = World.WORLD_ID
+        World.WORLD_ID += 1
+        self.maps_info = []
+        self.player_characters_info = []

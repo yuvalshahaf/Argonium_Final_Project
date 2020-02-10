@@ -93,3 +93,5 @@ class FighterClass(PlayerCharacter):
         self.move_left_images = Images.FIGHTER_MOVE_LEFT_IMAGES  # 4 images
         self.image = self.move_up_images[self.image_index]
 
+
+class PlayerCharacterInfo()
