@@ -84,8 +84,7 @@ class GameManager(object):
 
 def main():
     Images.load_images()
-    print(Images.PATH)
-    print("sdfsdf")
+    print("Images loaded")
     game_manager = GameManager()
     t = threading.Thread(target=game_manager.connect_clients)
     t.start()

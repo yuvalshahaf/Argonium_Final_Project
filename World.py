@@ -10,7 +10,7 @@ class World:
         self.world_id = World.WORLD_ID
         World.WORLD_ID += 1
 
-        self.maps = [Map(Images.MAP_TOWN)]
+        self.maps = [Map(Images.MAP_TOWN_PATHS)]
         self.player_characters = [PlayerCharacter.FighterClass(1)]
 
     def add_new_character(self, player_character):
