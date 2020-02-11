@@ -44,3 +44,10 @@ class Map(object):
     def initiate_map(self):
         self.tiled_map = TiledMap(self.paths)
         self.image = self.tiled_map.make_map()
+
+    def map_info(self):
+
+class MapInfo:
+    def __init__(self):
+        self.image_id = 8
+        self.game

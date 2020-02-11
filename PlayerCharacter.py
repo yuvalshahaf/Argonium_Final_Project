@@ -20,6 +20,12 @@ class PlayerCharacter(pygame.sprite.Sprite):
         self.move_right_images = None  # 4 images
         self.move_left_images = None  # 4 images
 
+        self.move_up_images = Images.FIGHTER_MOVE_UP_IMAGES  # 4 images
+        self.move_down_images = Images.FIGHTER_MOVE_DOWN_IMAGES  # 4 images
+        self.move_right_images = Images.FIGHTER_MOVE_RIGHT_IMAGES  # 4 images
+        self.move_left_images = Images.FIGHTER_MOVE_LEFT_IMAGES  # 4 images
+        self.image = self.move_up_images[self.image_index]
+
         self.image_index = 0
 
         self.level = 1
@@ -81,6 +87,13 @@ class PlayerCharacter(pygame.sprite.Sprite):
         elif game_action == GameActions.STOP_MOVE_LEFT:
             self.moving_left = False
 
+    def get_character_info(self):
+        info = []
+        info.append(self.user_id)
+        info.append(self.pc_id)
+        info.append(self.current_map)
+        info.append(self.level)
+
 
 class FighterClass(PlayerCharacter):
     CLASS_NAME = "Fighter"
@@ -92,6 +105,3 @@ class FighterClass(PlayerCharacter):
         self.move_right_images = Images.FIGHTER_MOVE_RIGHT_IMAGES  # 4 images
         self.move_left_images = Images.FIGHTER_MOVE_LEFT_IMAGES  # 4 images
         self.image = self.move_up_images[self.image_index]
-
-
-class PlayerCharacterInfo()

@@ -32,4 +32,16 @@ class Images:
         Images.MAP_TOWN_PATHS.append(path + "town.tmx" for path in Images.MAPS_PATHS)
 
 
+class ImageIDs:
+    image_ids = {
+        1: Images.PATHS,
+        2: Images.FIGHTER_PATHS,
+        3: Images.FIGHTER_MOVE_UP_IMAGES,
+        4: Images.FIGHTER_MOVE_DOWN_IMAGES,
+        5: Images.FIGHTER_MOVE_RIGHT_IMAGES,
+        6: Images.FIGHTER_MOVE_LEFT_IMAGES,
+        7: Images.MAPS_PATHS,
+        8: Images.MAP_TOWN_PATHS,
+    }
+
 
